@@ -21,12 +21,14 @@ class DCECBBlock(Layer):
             kernel_size=self.kernel_size,
             dilation_rate=self.dilation_rate,
             activation='elu',
+            padding='same',
         )
         self.projection_conv = Conv2D(
             filters=self.n_filters,
             kernel_size=1,
             use_bias=not self.use_bn,
             activation=None,
+            padding='same',
         )
         if self.use_bn:
             self.bn = BatchNormalization(axis=-1)
@@ -70,6 +72,7 @@ class ELDRN(Model):
             filters=self.n_filters,
             kernel_size=self.kernel_size,
             activation='elu',
+            padding='same',
         )
         self.convs = [
             DCECBBlock(
@@ -86,6 +89,7 @@ class ELDRN(Model):
             filters=n_outputs,
             kernel_size=self.kernel_size,
             activation=None,
+            padding='same',
         )
 
     def call(self, inputs):
