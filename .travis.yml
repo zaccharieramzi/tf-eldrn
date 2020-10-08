@@ -1,0 +1,7 @@
+language: python
+install:
+  - pip install pytest numpy
+  - pip install tensorflow
+
+script:
+  - pytest eldrn_test.py
