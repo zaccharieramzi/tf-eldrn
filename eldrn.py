@@ -3,7 +3,14 @@ from tensorflow.keras.layers import Layer, Conv2D, BatchNormalization
 
 
 class DCECBBlock(Layer):
-    def __init__(self, n_filters=64, dilation_rate=2, kernel_size=3, use_bn=True, **kwargs):
+    def __init__(
+            self,
+            n_filters=64,
+            dilation_rate=2,
+            kernel_size=3,
+            use_bn=True,
+            **kwargs,
+        ):
         self.n_filters = n_filters
         self.dilation_rate = dilation_rate
         self.kernel_size = kernel_size
@@ -44,7 +51,15 @@ class DCECBBlock(Layer):
         return config
 
 class ELDRN(Model):
-    def __init__(self, n_layers=15, n_filters=64, dilation_rate=2, kernel_size=3, use_bn=True, **kwargs):
+    def __init__(
+            self,
+            n_layers=15,
+            n_filters=64,
+            dilation_rate=2,
+            kernel_size=3,
+            use_bn=True,
+            **kwargs,
+        ):
         self.n_layers = n_layers
         self.n_filters = n_filters
         self.dilation_rate = dilation_rate
